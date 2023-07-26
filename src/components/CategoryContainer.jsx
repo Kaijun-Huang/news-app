@@ -5,11 +5,12 @@ export const CategoryContainer = () => {
   return (
     <div className={style.container}>
       <CategoryBtn category="Business" />
-      <CategoryBtn category="Technology" />
       <CategoryBtn category="Entertainment" />
+      <CategoryBtn category="General" />
       <CategoryBtn category="Health" />
-      <CategoryBtn category="International" />
-      <CategoryBtn category="Taiwan" />
+      <CategoryBtn category="Science" />
+      <CategoryBtn category="Technology" />
+      <CategoryBtn category="Sports" />
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const RightPanel = () => {
 
   return (
     <div className={style.rightPanel}>
-      <h3>Top-headlines</h3>
+      <h3>地方新聞</h3>
       {/*<div className={style.cardsContainer}>
         {headlines.map((headline, i) => (
           <NewsCard key={i} data={headline} />

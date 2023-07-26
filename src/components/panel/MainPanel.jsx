@@ -7,7 +7,7 @@ export const MainPanel = () => {
     <>
       <div className={style.mainPanel}>
         <LeftPanel />
-        <RightPanel />
+        {/* <RightPanel /> */}
       </div>
       <div className={style.mainPanelInSearching}>
         <LeftPanel />
