@@ -1,9 +1,26 @@
-.mainPanel {
-  margin: 20px 40px;
-  display: flex;
-  justify-content: space-around;
+@import "App";
+
+.mainPanel2Column,
+.mainPanel1Column {
+  width: 90%;
 }
 
-.mainPanelInSearching {
+.mainPanel1Column {
+  display: block;
+  margin: 50px auto 0px;
+}
+
+.mainPanel2Column {
   display: none;
+}
+
+@media screen and (min-width: $screen_breakpoint) {
+  .mainPanel2Column {
+    display: flex;
+    justify-content: space-around;
+    margin: 150px auto 0px;
+  }
+  .mainPanel1Column {
+    display: none;
+  }
 }

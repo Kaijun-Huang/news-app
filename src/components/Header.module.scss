@@ -1,0 +1,135 @@
+@import "App";
+.icon {
+  width: 25px;
+  height: 25px;
+  margin: auto 5px;
+}
+nav {
+  background-color: var(--lightGray);
+  // 測試用
+  * {
+    // border: 1px solid #000;
+  }
+  height: 50px;
+  width: 100%;
+  // display: grid;
+  // grid-template-columns: 1fr minmax(300px, 3fr) 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  input[type="checkbox"] {
+    display: none;
+  }
+  .searchAndMenu {
+    display: flex;
+    justify-content: center;
+    .categoryContainerMobile {
+      display: none;
+    }
+    .menuSwitch:checked ~ .categoryContainerMobile {
+      display: block;
+    }
+    .searchSwitch:checked + .searchBarContainer {
+      display: block;
+    }
+  }
+  .navbarLogo {
+    // grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  .searchBarContainer {
+    display: none;
+  }
+  .navbarItems {
+    // grid-column: 3/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .moon {
+      display: none;
+    }
+    .countrySelection {
+      display: none;
+    }
+  }
+}
+.categoryContainerDesktop {
+  display: none;
+}
+@media screen and (min-width: $screen_breakpoint) {
+  nav {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 3fr) 1fr;
+    .navbarLogo {
+      grid-column: 1 / 2;
+      .logo {
+        margin-right: 3px;
+      }
+    }
+    .searchAndMenu {
+      display: none;
+    }
+    .searchBarContainer {
+      grid-column: 2 / 3;
+      display: block;
+      border: 1px solid var(--black);
+      input,
+      select,
+      button {
+        height: 30px;
+        background-color: var(--white);
+        border: none;
+        padding: 0px;
+        color: grey;
+      }
+      input {
+        background-color: var(--white);
+        min-width: 280px;
+        border-radius: 10px 0px 0px 10px;
+      }
+      select {
+        min-width: 80px;
+        border-left: 1px solid var(--lightGray);
+        border-right: 1px solid var(--lightGray);
+      }
+      button {
+        min-width: 60px;
+        border-radius: 0px 10px 10px 0px;
+      }
+    }
+    .navbarItems {
+      grid-column: 3 / 4;
+
+      .sun,
+      .moon {
+        margin-right: 3px;
+      }
+      .countrySelection {
+        display: inline;
+        height: 30px;
+        width: 80px;
+        font-size: 12px;
+        background-color: var(--white);
+        border: none;
+        padding: 0px;
+        border-radius: 5px 5px 5px 5px;
+      }
+      .countrySelectionDisabled {
+        // display: none;
+        visibility: hidden;
+      }
+    }
+  }
+  .categoryContainerDesktop {
+    display: block;
+  }
+}

@@ -1,7 +1,20 @@
+$screen_breakpoint: 768px;
+
 .App {
   text-align: center;
   /* Dark mode */
   /* background-color: #413d3b; */
+}
+
+:root {
+  --major: #ff6600;
+  --gray: #757575;
+  --lightGray: #eeeeee;
+  --darkGray: #44444f;
+  --white: #ffffff;
+  --black: #000000;
+  --newsCard_Font: Arial;
+  --newsCard_bcg: #e1e1e1;
 }
 
 .App-logo {

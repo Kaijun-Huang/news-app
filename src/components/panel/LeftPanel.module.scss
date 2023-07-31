@@ -1,6 +1,15 @@
 .leftPanel {
-  // margin: 20px;
-  width: 80%;
+  min-width: 65%;
+  background-color: var(--lightGray);
+  margin: 10px;
+
+  padding: 10px;
+  border-radius: 10px;
+  h3 {
+    margin: 20px auto;
+    font-size: 24px;
+    font-weight: bold;
+  }
 }
 .cardsContainer {
   // margin: 20px;

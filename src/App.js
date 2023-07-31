@@ -1,15 +1,15 @@
-import "./App.css";
-import { SearchBar } from "./components/SearchBar";
-import { CategoryContainer } from "./components/CategoryContainer";
+import { Header } from "components/Header";
+import "./App.scss";
 import { MainPanel } from "./components/panel/MainPanel";
 import { FilterProvider } from "context/filterContext";
+import { CategoryContainer } from "components/CategoryContainer";
 
 function App() {
   return (
     <div className="App">
       <FilterProvider>
-        <SearchBar />
-        <CategoryContainer />
+        <Header />
+        {/* <CategoryContainer /> */}
         <MainPanel />
       </FilterProvider>
     </div>

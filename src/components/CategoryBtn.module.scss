@@ -1,12 +1,17 @@
+@import "App";
 .categoryBtn {
-  display: inline-block;
-  border-radius: 15px 15px 15px 15px;
-  border: 1px solid #000;
-  margin: 10px;
-  padding: 5px;
-  //   width: 120px;
-  // height: 25px;
-  // line-height: 25px;
-  text-align: center;
   cursor: pointer;
+}
+
+@media screen and (min-width: $screen_breakpoint) {
+  .categoryBtn {
+    display: inline-block;
+    border-top: 1px solid var(--black);
+    border-left: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+  }
 }

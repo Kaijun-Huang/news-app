@@ -5,11 +5,11 @@ import style from "./MainPanel.module.scss";
 export const MainPanel = () => {
   return (
     <>
-      <div className={style.mainPanel}>
+      <div className={style.mainPanel2Column}>
         <LeftPanel />
-        {/* <RightPanel /> */}
+        <RightPanel />
       </div>
-      <div className={style.mainPanelInSearching}>
+      <div className={style.mainPanel1Column}>
         <LeftPanel />
       </div>
     </>

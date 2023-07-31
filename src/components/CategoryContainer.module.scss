@@ -1,5 +1,32 @@
+@import "App";
 .container {
+  background-color: var(--lightGray);
+  border-radius: 0px 10px 10px 10px;
+  border: 1px solid #000;
+  margin: 50px auto 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
   text-align: left;
-  margin: 20px 40px;
-  min-height: 60px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media screen and (min-width: $screen_breakpoint) {
+  .container {
+    background-color: var(--lightGray);
+    margin: 50px auto 10px;
+    padding-top: 30px;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }

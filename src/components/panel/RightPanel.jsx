@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
-import { NewsCard } from "./NewsCard";
+import { RightNewsCard } from "./NewsCard";
 import style from "./RightPanel.module.scss";
-import { getTopHeadlines } from "api/getNews";
+import { getEverything } from "api/getNews";
+import { useFilter } from "context/filterContext";
 export const RightPanel = () => {
-  const [headlines, setHeadlines] = useState([]);
+  const [localNews, setLocalNews] = useState([]);
+  const { language } = useFilter();
   useEffect(() => {
-    (async () => setHeadlines(await getTopHeadlines("us")))();
-  }, []);
-
+    (async () => setLocalNews(await getEverything(language, "台北")))();
+  }, [language]);
+  const top10 = localNews.slice(0, 15);
   return (
     <div className={style.rightPanel}>
       <h3>地方新聞</h3>
-      {/*<div className={style.cardsContainer}>
-        {headlines.map((headline, i) => (
-          <NewsCard key={i} data={headline} />
+      <div className={style.cardsContainer}>
+        {top10.map((news, i) => (
+          <RightNewsCard key={i} data={news} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
