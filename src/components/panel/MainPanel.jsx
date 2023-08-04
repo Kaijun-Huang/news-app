@@ -5,12 +5,9 @@ import style from "./MainPanel.module.scss";
 export const MainPanel = () => {
   return (
     <>
-      <div className={style.mainPanel2Column}>
+      <div className={style.mainPanel}>
         <LeftPanel />
-        <RightPanel />
-      </div>
-      <div className={style.mainPanel1Column}>
-        <LeftPanel />
+        <RightPanel className={`${style.mobile}`} />
       </div>
     </>
   );

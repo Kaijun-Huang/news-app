@@ -15,7 +15,6 @@ export const LeftPanel = () => {
     showContent();
   }, [country, category, query, language]);
   const top10 = allNews.slice(0, 10);
-
   return (
     <div className={style.leftPanel}>
       <h3>焦點新聞</h3>

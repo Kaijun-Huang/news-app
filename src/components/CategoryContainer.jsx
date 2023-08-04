@@ -1,9 +1,9 @@
 import { CategoryBtn } from "./CategoryBtn";
-import style from "./CategoryContainer.module.scss";
+import styles from "./CategoryContainer.module.scss";
 
-export const CategoryContainer = () => {
+export const CategoryContainer = ({ className }) => {
   return (
-    <div className={style.container}>
+    <div className={`${styles.container} ${className}`}>
       <CategoryBtn category="General" />
       <CategoryBtn category="Business" />
       <CategoryBtn category="Entertainment" />

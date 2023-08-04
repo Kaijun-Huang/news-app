@@ -1,8 +1,9 @@
-.leftPanel {
-  min-width: 65%;
-  background-color: var(--lightGray);
-  margin: 10px;
+@import "App";
 
+.leftPanel {
+  width: 80%;
+  background-color: var(--lightSecondary);
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
   h3 {
@@ -11,6 +12,9 @@
     font-weight: bold;
   }
 }
-.cardsContainer {
-  // margin: 20px;
+
+@media screen and (min-width: $screen_breakpoint) {
+  .leftPanel {
+    width: 50%;
+  }
 }

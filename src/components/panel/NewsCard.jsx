@@ -5,7 +5,7 @@ export const LeftNewsCard = ({ data }) => {
   const time = timeAgo(data.publishedAt);
   return (
     <a href={data.url}>
-      <div className={style.leftNewsCard}>
+      <div className={`${style.leftNewsCard}`}>
         <div className={style.imgAndTitle}>
           {data.urlToImage !== null ? (
             <img
@@ -20,11 +20,11 @@ export const LeftNewsCard = ({ data }) => {
             <p className={style.title}>{data.title}</p>
             <div className={style.authorAndDate}>
               <span>{time}</span>
-              <span>from: {data.author}</span>
+              {data.author ? <span>from: {data.author}</span> : ""}
             </div>
           </div>
         </div>
-        <p className={style.description}>{data.description}</p>
+        {/* <p className={style.description}>{data.description}</p> */}
       </div>
     </a>
   );

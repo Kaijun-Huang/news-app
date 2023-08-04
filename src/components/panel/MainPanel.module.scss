@@ -1,26 +1,22 @@
 @import "App";
-
-.mainPanel2Column,
-.mainPanel1Column {
-  width: 90%;
+.mainPanel {
+  background-color: var(--lightMain);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0px 0px;
+  padding-top: 50px;
 }
-
-.mainPanel1Column {
-  display: block;
-  margin: 50px auto 0px;
-}
-
-.mainPanel2Column {
+.mobile {
   display: none;
 }
-
 @media screen and (min-width: $screen_breakpoint) {
-  .mainPanel2Column {
+  .mobile {
+    display: block;
+  }
+  .mainPanel {
     display: flex;
     justify-content: space-around;
-    margin: 150px auto 0px;
-  }
-  .mainPanel1Column {
-    display: none;
+    margin: 100px 0px 0px;
   }
 }
