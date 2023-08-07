@@ -1,10 +1,22 @@
 @import "App";
+// dark mode switch
+.logo *,
+.icon * {
+  fill: var(--iconColor);
+  stroke: var(--iconColor);
+}
+.search * {
+  fill: none;
+  stroke: var(--iconColor);
+}
+
 .icon {
   width: 25px;
   height: 25px;
   margin: auto 5px;
   cursor: pointer;
 }
+
 .searchBarContainer {
   background-color: var(--lightSecondary);
   height: 50px;
@@ -14,26 +26,31 @@
   input,
   select,
   button {
-    background-color: var(--white);
+    background-color: var(--searchbarColor);
     border: none;
     padding: 0px;
-    color: grey;
+    color: var(--fontColor);
     height: 30px;
   }
   input {
-    background-color: var(--white);
+    background-color: var(--searchbarColor);
     width: 60%;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 15px 0px 0px 15px;
   }
+  ::placeholder {
+    color: var(--fontColor);
+  }
   select {
     width: 20%;
+    max-width: 100px;
     border-left: 1px solid var(--lightSecondary);
     border-right: 1px solid var(--lightSecondary);
   }
   button {
     width: 15%;
+    max-width: 60px;
     border-radius: 0px 15px 15px 0px;
   }
 }
@@ -86,9 +103,13 @@ nav {
     justify-content: center;
     align-items: center;
     .logo {
-      width: 35px;
-      height: 35px;
-      margin-right: 5px;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    span {
+      font-weight: 700;
+      font-size: 20px;
     }
   }
   .searchBarDesktop {
@@ -109,9 +130,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    .sun {
-      display: none;
-    }
+
     .countrySwitch:checked ~ .countrySelection {
       display: inline;
     }
@@ -123,11 +142,11 @@ nav {
 @media screen and (min-width: $screen_breakpoint) {
   nav {
     grid-template-columns: 25px auto minmax(300px, 3fr) auto 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
     .navbarLogo {
       grid-column: 2 / 3;
-      .logo {
-        margin-right: 3px;
-      }
     }
     .searchAndMenu {
       display: none;
@@ -138,6 +157,11 @@ nav {
       top: auto;
       left: auto;
       grid-column: 3 / 4;
+      & > * {
+        border: 1px solid var(--lightLine);
+        font-size: 1rem;
+        background-color: var(--searchbarColor);
+      }
     }
     .navbarItems {
       grid-column: 4 / 5;

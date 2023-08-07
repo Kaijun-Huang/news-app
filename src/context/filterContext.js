@@ -4,7 +4,7 @@ const FilterContext = createContext();
 export const useFilter = () => useContext(FilterContext);
 export const FilterProvider = ({ children }) => {
   const [country, setCountry] = useState("tw");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("General");
   const [query, setQuery] = useState("");
   const [language, setLanguage] = useState("zh");
   const value = {

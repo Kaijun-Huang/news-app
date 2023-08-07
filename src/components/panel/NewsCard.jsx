@@ -6,22 +6,20 @@ export const LeftNewsCard = ({ data }) => {
   return (
     <a href={data.url}>
       <div className={`${style.leftNewsCard}`}>
-        <div className={style.imgAndTitle}>
-          {data.urlToImage !== null ? (
-            <img
-              className={style.urlToImage}
-              src={data.urlToImage}
-              alt="urlToImage"
-            />
-          ) : (
-            ""
-          )}
-          <div className={style.titleAuthorAndDate}>
-            <p className={style.title}>{data.title}</p>
-            <div className={style.authorAndDate}>
-              <span>{time}</span>
-              {data.author ? <span>from: {data.author}</span> : ""}
-            </div>
+        {data.urlToImage !== null ? (
+          <img
+            className={style.urlToImage}
+            src={data.urlToImage}
+            alt="urlToImage"
+          />
+        ) : (
+          ""
+        )}
+        <div className={style.titleAuthorAndDate}>
+          <p className={style.title}>{data.title}</p>
+          <div className={style.authorAndDate}>
+            <span>{time}</span>
+            {data.author ? <span>from: {data.author}</span> : ""}
           </div>
         </div>
         {/* <p className={style.description}>{data.description}</p> */}

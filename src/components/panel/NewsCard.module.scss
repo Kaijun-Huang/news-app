@@ -2,55 +2,54 @@
   border-radius: 10px 10px 10px 10px;
   margin: 10px auto;
   padding: 10px;
-  font-family: var(--newsCard_Font);
+  font-family: var(--font);
   background-color: var(--lightMain);
   font-size: 20px;
-  .imgAndTitle {
-    display: flex;
-    text-align: left;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+  .urlToImage {
+    border-radius: 10px 10px 10px 10px;
+    width: 100px;
     height: 100px;
-    .urlToImage {
-      border-radius: 10px 10px 10px 10px;
-      width: 150px;
-      height: 100%;
-      object-fit: cover;
-    }
-    .titleAuthorAndDate {
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .titleAuthorAndDate {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    p {
       width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      p {
-        width: 100%;
-      }
     }
-    .title {
-      margin-left: 10px;
-      margin-right: 10px;
-      font-weight: 700;
-      line-height: 25px;
-    }
-    .authorAndDate {
-      margin-left: 10px;
-      margin-right: 10px;
-      display: flex;
-      justify-content: space-between;
-      span {
-        font-size: 14px;
-        color: var(--darkGray);
-        font-style: italic;
+  }
+  .title {
+    font-weight: 700;
+    line-height: 25px;
+  }
+  .authorAndDate {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 14px;
+      color: var(--darkGray);
+      font-style: italic;
+      &:nth-child(2) {
+        text-align: right;
+        max-width: 60%;
       }
     }
   }
 }
-
 .rightNewsCard {
   border-radius: 10px 10px 10px 10px;
   margin: 5px auto;
   padding: 5px;
   background-color: var(--lightMain);
+  font-family: var(--font);
   .imgAndTitle {
     display: flex;
     text-align: left;

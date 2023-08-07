@@ -2,28 +2,39 @@ $screen_breakpoint: 768px;
 
 .App {
   text-align: center;
-  /* Dark mode */
-  /* background-color: #413d3b; */
+  color: var(--fontColor);
 }
 
 :root {
   --major: #ff6600;
   --gray: #757575;
-  --lightMain: #f0f0ef;
-  --lightSecondary: #f7f7f7;
-  --darkMain: #aed4d4;
-  --darkSecondary: #8ac0c0;
+  --lightMain: #f3f3f3;
+  --lightSecondary: #fafafa;
+  --lightLine: #adadad;
   --white: #ffffff;
   --black: #000000;
   --lightText: #e9e9f3;
   --darkText: #1f2a38;
-  --newsCard_Font: Arial;
-  --newsCard_bcg: #e1e1e1;
+  --font: Arial;
+  --fontColor: #000000;
+  --searchbarColor: #f3f3f3;
+  --iconColor: #000000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[data-theme="dark"] {
+  --major: #ff6600;
+  --gray: #757575;
+  --lightMain: #3a3a3a;
+  --lightSecondary: #585858;
+  --lightLine: #828282;
+  --white: #ffffff;
+  --black: #000000;
+  --lightText: #e9e9f3;
+  --darkText: #1f2a38;
+  --font: Arial;
+  --fontColor: #ffffff;
+  --searchbarColor: #3a3a3a;
+  --iconColor: #ffffff;
 }
 
 @media (prefers-reduced-motion: no-preference) {
