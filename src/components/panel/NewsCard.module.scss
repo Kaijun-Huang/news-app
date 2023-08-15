@@ -1,5 +1,6 @@
 .leftNewsCard {
   border-radius: 10px 10px 10px 10px;
+  box-sizing: border-box;
   margin: 10px auto;
   padding: 10px;
   font-family: var(--font);
@@ -7,7 +8,7 @@
   font-size: 20px;
   display: flex;
   align-items: center;
-  min-height: 100px;
+  height: 120px;
   .urlToImage {
     border-radius: 10px 10px 10px 10px;
     width: 100px;
@@ -17,7 +18,7 @@
   }
   .titleAuthorAndDate {
     width: 100%;
-    min-height: 100px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -50,6 +51,8 @@
   padding: 5px;
   background-color: var(--lightMain);
   font-family: var(--font);
+  min-height: 60px;
+
   .imgAndTitle {
     display: flex;
     text-align: left;

@@ -1,13 +1,13 @@
 import { LeftPanel } from "./LeftPanel";
 import { RightPanel } from "./RightPanel";
 import style from "./MainPanel.module.scss";
-
 export const MainPanel = () => {
+  const pageSize = 20;
   return (
     <>
       <div className={style.mainPanel}>
-        <LeftPanel />
-        <RightPanel className={`${style.mobile}`} />
+        <LeftPanel pageSize={pageSize} />
+        <RightPanel pageSize={pageSize} className={`${style.mobile}`} />
       </div>
     </>
   );

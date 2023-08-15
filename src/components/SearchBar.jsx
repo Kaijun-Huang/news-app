@@ -5,7 +5,7 @@ import { useFilter } from "context/filterContext";
 export const SearchBarContainer = ({ className }) => {
   const [keyword, setKeyword] = useState("");
   const { setQuery, setLanguage } = useFilter();
-
+  let tempLanguage = "";
   return (
     <div className={`${style.searchBarContainer} ${className}`}>
       <input
@@ -16,7 +16,7 @@ export const SearchBarContainer = ({ className }) => {
         defaultValue="zh"
         name="language"
         id="language"
-        onChange={(e) => setLanguage(e.target.value)}
+        onChange={(e) => (tempLanguage = e.target.value)}
       >
         <option value="de">German</option>
         <option value="en">English</option>
@@ -29,7 +29,14 @@ export const SearchBarContainer = ({ className }) => {
         <option value="ru">Russian</option>
         <option value="zh">中文</option>
       </select>
-      <button onClick={() => setQuery(keyword)}>搜尋</button>
+      <button
+        onClick={() => {
+          setQuery(keyword);
+          setLanguage(tempLanguage);
+        }}
+      >
+        搜尋
+      </button>
     </div>
   );
 };

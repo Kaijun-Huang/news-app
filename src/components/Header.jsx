@@ -6,18 +6,26 @@ import { ReactComponent as Menu } from "assets/menu.svg";
 import { ReactComponent as Search } from "assets/search.svg";
 import { useFilter } from "context/filterContext";
 import style from "./Header.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UpperCaseCountryCode, getCountryName } from "./isoCountryCode";
 import { CategoryContainer } from "./CategoryContainer";
 import { SearchBarContainer } from "./SearchBar";
+
 export const Header = () => {
+  const initialMode = JSON.parse(localStorage.getItem("lightMode"));
+  const localLightMode = initialMode === null ? true : initialMode;
+  const [lightMode, setLightMode] = useState(localLightMode);
   const { country, setCountry } = useFilter();
-  const [lightMode, setLightMode] = useState(true);
+  useEffect(() => {
+    const root = document.getElementById("root");
+    lightMode
+      ? root.setAttribute("data-theme", "light")
+      : root.setAttribute("data-theme", "dark");
+  }, [lightMode]);
   const CountryOptions = ({ className, countryCode }) => {
     return (
       <select
         defaultValue={countryCode}
-        value={countryCode}
         className={className}
         name="country"
         id="country"
@@ -36,11 +44,16 @@ export const Header = () => {
 
   const switchMode = () => {
     const root = document.getElementById("root");
-    lightMode
-      ? root.setAttribute("data-theme", "dark")
-      : root.setAttribute("data-theme", "light");
+    if (lightMode) {
+      root.setAttribute("data-theme", "dark");
+      localStorage.setItem("lightMode", false);
+    } else {
+      root.setAttribute("data-theme", "light");
+      localStorage.setItem("lightMode", true);
+    }
     setLightMode(!lightMode);
   };
+
   return (
     <>
       <nav>
