@@ -1,16 +1,16 @@
 .leftNewsCard {
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   box-sizing: border-box;
   margin: 10px auto;
   padding: 10px;
   font-family: var(--font);
   background-color: var(--lightMain);
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   height: 120px;
   .urlToImage {
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -30,6 +30,8 @@
   .title {
     font-weight: 700;
     line-height: 25px;
+    max-height: inherit;
+    height: 200px;
   }
   .authorAndDate {
     display: flex;
@@ -46,7 +48,7 @@
   }
 }
 .rightNewsCard {
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   margin: 5px auto;
   padding: 5px;
   background-color: var(--lightMain);
@@ -58,7 +60,7 @@
     text-align: left;
     align-items: center;
     .urlToImage {
-      border-radius: 10px 10px 10px 10px;
+      border-radius: 10px;
       width: 60px;
       height: 60px;
       object-fit: cover;

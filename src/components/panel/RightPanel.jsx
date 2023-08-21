@@ -9,23 +9,22 @@ export const RightPanel = ({ className, pageSize }) => {
   const [localNews, setLocalNews] = useState([]);
   const [city, setCity] = useState("");
   const page = useRef(1);
+
   useEffect(() => {
-    const showLocalNews = async () => {
+    const fetchData = async () => {
+      const { latitude, longitude } = await getUserLocation();
+      const cityName = await getCityName(latitude, longitude);
       const allNewsData = await getEverything(
         "zh",
-        city,
+        cityName,
         pageSize,
         page.current
       );
+      setCity(cityName);
       setLocalNews(allNewsData);
     };
-    const getCity = async () => {
-      const { latitude, longitude } = await getUserLocation();
-      setCity(await getCityName(latitude, longitude));
-    };
-    getCity();
-    showLocalNews();
-  }, [city, pageSize]);
+    fetchData();
+  }, [pageSize]);
 
   const getFreshNews = async () => {
     page.current++;
@@ -39,7 +38,7 @@ export const RightPanel = ({ className, pageSize }) => {
 
   return (
     <div className={`${style.rightPanel} ${className}`}>
-      <h3>{city + " - "}地方新聞</h3>
+      <p className={`${style.title}`}>{city + " - "}地方新聞</p>
       <div
         className={style.cardsContainer}
         onScroll={(e) => {

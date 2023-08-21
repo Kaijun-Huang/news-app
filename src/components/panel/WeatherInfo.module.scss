@@ -1,0 +1,28 @@
+.weatherInfoContainer {
+  position: absolute;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--lightMain);
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .imgAndCity {
+    display: flex;
+    flex-direction: column;
+    img {
+      background-color: white;
+      border-radius: 10px;
+      margin-right: 5px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .weatherInfo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+}

@@ -16,7 +16,11 @@ export const LeftNewsCard = ({ data }) => {
           ""
         )}
         <div className={style.titleAuthorAndDate}>
-          <p className={style.title}>{data.title}</p>
+          <p className={style.title}>
+            {data.title.length > 60
+              ? data.title.slice(0, 60).concat("...")
+              : data.title}
+          </p>
           <div className={style.authorAndDate}>
             <span>{time}</span>
             {data.author ? <span>from: {data.author}</span> : ""}

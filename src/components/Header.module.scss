@@ -18,42 +18,34 @@
 }
 
 .searchBarContainer {
-  background-color: var(--lightSecondary);
-  height: 50px;
-  line-height: 50px;
-  width: 75%;
   margin: 0 auto;
-  input,
-  select,
-  button {
-    background-color: var(--searchbarColor);
-    border: none;
-    padding: 0px;
-    color: var(--fontColor);
-    height: 30px;
-  }
-  input {
-    background-color: var(--searchbarColor);
-    width: 60%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 15px 0px 0px 15px;
-  }
-  ::placeholder {
-    color: var(--fontColor);
-  }
-  select {
-    width: 20%;
-    max-width: 100px;
-    border-left: 1px solid var(--lightSecondary);
-    border-right: 1px solid var(--lightSecondary);
-  }
-  button {
-    width: 15%;
-    max-width: 60px;
-    border-radius: 0px 15px 15px 0px;
+  .searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--lightLine);
+    border-radius: 15px;
+    padding: 5px;
+    & > * {
+      border: none;
+      background-color: inherit;
+    }
+    input {
+      width: 300px;
+      outline: none;
+    }
+    .X {
+      width: 20px;
+      height: 20px;
+      stroke: var(--lightLine);
+      fill: var(--lightLine);
+      padding: 0 8px;
+      border-right: 1px solid var(--lightLine);
+      border-left: 1px solid var(--lightLine);
+    }
   }
 }
+
 .countrySelection {
   position: absolute;
   top: 0px;
@@ -78,6 +70,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   input[type="checkbox"] {
@@ -116,11 +109,11 @@ nav {
     display: none;
   }
   .searchBarMobile {
-    width: 100%;
+    width: 60%;
     display: none;
     box-sizing: border-box;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 0px;
     right: 0px;
   }
@@ -160,7 +153,7 @@ nav {
       & > * {
         border: 1px solid var(--lightLine);
         font-size: 1rem;
-        background-color: var(--searchbarColor);
+        // background-color: var(--searchbarColor);
       }
     }
     .navbarItems {

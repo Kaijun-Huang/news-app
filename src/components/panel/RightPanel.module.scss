@@ -5,8 +5,9 @@
   background-color: var(--lightSecondary);
   padding: 10px;
   border-radius: 10px;
-  h3 {
-    margin: 20px auto;
+  .title {
+    height: 60px;
+    line-height: 60px;
     font-size: 24px;
     font-weight: bold;
   }

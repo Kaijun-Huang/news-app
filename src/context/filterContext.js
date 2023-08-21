@@ -7,6 +7,7 @@ export const FilterProvider = ({ children }) => {
   const [category, setCategory] = useState("General");
   const [query, setQuery] = useState("");
   const [language, setLanguage] = useState("zh");
+
   const value = {
     category,
     setCategory,

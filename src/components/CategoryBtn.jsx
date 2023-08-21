@@ -2,10 +2,10 @@ import { useFilter } from "context/filterContext";
 import style from "./CategoryBtn.module.scss";
 
 export const CategoryBtn = ({ categoryLabel, categoryName }) => {
-  const { category, setCategory } = useFilter();
+  const { setQuery, category, setCategory } = useFilter();
 
   const handleClick = () => {
-    setCategory("");
+    setQuery("");
     setCategory(categoryLabel);
   };
   return (

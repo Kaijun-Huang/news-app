@@ -7,33 +7,10 @@
   padding: 10px;
   border-radius: 10px;
   .leftPanelHeader {
-    display: flex;
-    .weatherInfoContainer {
-      padding: 5px;
-      border: 1px solid red;
-      width: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      .imgAndCity {
-        display: flex;
-        flex-direction: column;
-        img {
-          width: 50px;
-          height: 50px;
-        }
-      }
-      .weatherInfo {
-        border: 1px solid #000;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-around;
-      }
-    }
+    height: 60px;
+    position: relative;
     .title {
-      margin: 20px auto;
+      line-height: 60px;
       font-size: 24px;
       font-weight: bold;
     }

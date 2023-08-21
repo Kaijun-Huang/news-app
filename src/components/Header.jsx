@@ -7,7 +7,7 @@ import { ReactComponent as Search } from "assets/search.svg";
 import { useFilter } from "context/filterContext";
 import style from "./Header.module.scss";
 import { useEffect, useState } from "react";
-import { UpperCaseCountryCode, getCountryName } from "./isoCountryCode";
+import { countryLanguageConverter } from "./countrylang";
 import { CategoryContainer } from "./CategoryContainer";
 import { SearchBarContainer } from "./SearchBar";
 
@@ -15,29 +15,38 @@ export const Header = () => {
   const initialMode = JSON.parse(localStorage.getItem("lightMode"));
   const localLightMode = initialMode === null ? true : initialMode;
   const [lightMode, setLightMode] = useState(localLightMode);
-  const { country, setCountry } = useFilter();
+  const { country, setCountry, setLanguage } = useFilter();
   useEffect(() => {
     const root = document.getElementById("root");
     lightMode
       ? root.setAttribute("data-theme", "light")
       : root.setAttribute("data-theme", "dark");
   }, [lightMode]);
-  const CountryOptions = ({ className, countryCode }) => {
+
+  const CountryOptions = ({ className }) => {
     return (
       <select
-        defaultValue={countryCode}
+        defaultValue={country}
         className={className}
         name="country"
         id="country"
-        onChange={(e) => setCountry(e.target.value)}
+        onChange={(e) => {
+          const country = e.target.value;
+          const language = countryLanguageConverter(e.target.value);
+          setCountry(country);
+          setLanguage(language);
+        }}
       >
-        {UpperCaseCountryCode.map((countryCode, i) => {
-          return (
-            <option key={i} value={countryCode}>
-              {getCountryName(countryCode)}
-            </option>
-          );
-        })}
+        <option value="de">Germany</option>
+        <option value="us">United States</option>
+        <option value="es">Spain</option>
+        <option value="fr">France</option>
+        <option value="it">Italy</option>
+        <option value="nl">Netherland</option>
+        <option value="no">Norway</option>
+        <option value="pt">Portugal</option>
+        <option value="ru">Russia</option>
+        <option value="tw">台灣</option>
       </select>
     );
   };
@@ -62,6 +71,7 @@ export const Header = () => {
           <label htmlFor="menuSwitch">
             <Menu className={`${style.menu} ${style.icon}`} />
           </label>
+          {/* Mobile category */}
           <CategoryContainer className={style.categoryMobile} />
           <input
             type="checkbox"
@@ -71,12 +81,14 @@ export const Header = () => {
           <label htmlFor="searchSwitch">
             <Search className={`${style.search} ${style.icon}`} />
           </label>
+          {/* Mobile searchBar */}
           <SearchBarContainer className={style.searchBarMobile} />
         </div>
         <a href="/#" className={style.navbarLogo}>
           <Logo className={style.logo} />
           <span>即時新聞網</span>
         </a>
+        {/* Desktop searchBar */}
         <SearchBarContainer className={style.searchBarDesktop} />
         <div className={style.navbarItems}>
           <input
@@ -98,12 +110,10 @@ export const Header = () => {
               onClick={switchMode}
             />
           )}
-          <CountryOptions
-            className={style.countrySelection}
-            countryCode={country.toUpperCase()}
-          />
+          <CountryOptions className={style.countrySelection} />
         </div>
       </nav>
+      {/* Desktop category */}
       <CategoryContainer className={style.categoryDesktop} />
     </>
   );
