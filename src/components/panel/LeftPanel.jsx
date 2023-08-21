@@ -6,8 +6,8 @@ import { useFilter } from "context/filterContext";
 import { isBottom } from "components/virtualScroll";
 import { throttle } from "components/throttle";
 import { WeatherInfo } from "./WeatherInfo";
-import { getUserLocation } from "api/geoLocation";
-import { getWeatherData } from "api/weatherapi";
+// import { getUserLocation } from "api/geoLocation";
+// import { getWeatherData } from "api/weatherapi";
 
 export const LeftPanel = ({ pageSize }) => {
   const [allNews, setAllNews] = useState([]);
