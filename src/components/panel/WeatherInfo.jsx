@@ -18,7 +18,6 @@ export const WeatherInfo = () => {
   const roundUp = (num) => Math.round(num).toString();
 
   const iconUrl = `https://openweathermap.org/img/wn/${weatherData?.weather?.[0].icon}@2x.png`;
-  console.log(iconUrl);
   return (
     <div className={style.weatherInfoContainer}>
       <div className={style.imgAndCity}>

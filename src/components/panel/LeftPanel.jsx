@@ -1,7 +1,7 @@
 import style from "./LeftPanel.module.scss";
 import { LeftNewsCard } from "./NewsCard";
 import { useEffect, useRef, useState } from "react";
-import { getEverything, getTopHeadlines } from "api/getNews";
+import { getEverything, getTopHeadlines, getTopHeadlines1 } from "api/getNews";
 import { useFilter } from "context/filterContext";
 import { isBottom } from "components/virtualScroll";
 import { throttle } from "components/throttle";
@@ -23,6 +23,9 @@ export const LeftPanel = ({ pageSize }) => {
           category,
           pageSize,
           page.current
+        );
+        console.log(
+          await getTopHeadlines1(country, category, pageSize, page.current)
         );
         setAllNews(headlinesData);
       } else {

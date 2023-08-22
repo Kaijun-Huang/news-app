@@ -34,7 +34,7 @@ export const LeftNewsCard = ({ data }) => {
 
 export const RightNewsCard = ({ data }) => {
   return (
-    <a href={data.url}>
+    <a href={data.urlToImage}>
       <div className={style.rightNewsCard}>
         <div className={style.imgAndTitle}>
           {data.urlToImage !== null ? (

@@ -1,12 +1,17 @@
 import axios from "axios";
-const baseUrl = "https://newsapi.org/v2/";
+const cors = "https://proxy.cors.sh/";
+const newsApiBaseUrl = "https://newsapi.org/v2/";
+const gnewsApiBaseUrl = "https://gnews.io/api/v4/";
 // const api_key = "55a44a5925ca4c5da9b47ab603ec1071";
 // const api_key = "1cae91a01378408481142597556d7ccd";
-const api_key = "fe235f8dd24e4f668633aca2af28cc32";
+const news_api_key = "fe235f8dd24e4f668633aca2af28cc32";
+const gnews_api_key = "3b569fd472cb562865863424b5cd86cf";
 
-export const getTopHeadlines = async (country, category, pageSize, page) => {
+//Gnews
+
+export const getTopHeadlines1 = async (country, category, pageSize, page) => {
   try {
-    const { data } = await axios.get(`${baseUrl}top-headlines`, {
+    const { data } = await axios.get(`${gnewsApiBaseUrl}top-headlines`, {
       params: {
         country,
         category,
@@ -14,7 +19,48 @@ export const getTopHeadlines = async (country, category, pageSize, page) => {
         page,
       },
       headers: {
-        Authorization: "Bearer " + api_key,
+        Authorization: "Bearer " + gnews_api_key,
+      },
+    });
+    return data.articles;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getEverything1 = async (language, query, pageSize, page) => {
+  try {
+    const { data } = await axios.get(`${gnewsApiBaseUrl}search`, {
+      params: {
+        q: "'" + query + "'",
+        language,
+        max: pageSize,
+        page,
+        in: "title,description",
+      },
+      headers: {
+        Authorization: "Bearer " + gnews_api_key,
+      },
+    });
+    return data.articles;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+//newsAPI
+
+export const getTopHeadlines = async (country, category, pageSize, page) => {
+  try {
+    const { data } = await axios.get(`${newsApiBaseUrl}top-headlines`, {
+      params: {
+        country,
+        category,
+        pageSize,
+        page,
+      },
+      headers: {
+        Authorization: "Bearer " + news_api_key,
       },
     });
     return data.articles;
@@ -25,7 +71,7 @@ export const getTopHeadlines = async (country, category, pageSize, page) => {
 
 export const getEverything = async (language, query, pageSize, page) => {
   try {
-    const { data } = await axios.get(`${baseUrl}everything`, {
+    const { data } = await axios.get(`${newsApiBaseUrl}everything`, {
       params: {
         q: "'" + query + "'",
         language,
@@ -35,7 +81,7 @@ export const getEverything = async (language, query, pageSize, page) => {
         searchIn: "title,description",
       },
       headers: {
-        Authorization: "Bearer " + api_key,
+        Authorization: "Bearer " + news_api_key,
       },
     });
     return data.articles;
