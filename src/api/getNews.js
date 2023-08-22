@@ -1,5 +1,5 @@
 import axios from "axios";
-const cors = "https://proxy.cors.sh/";
+// const cors = "https://proxy.cors.sh/";
 const newsApiBaseUrl = "https://newsapi.org/v2/";
 const gnewsApiBaseUrl = "https://gnews.io/api/v4/";
 // const api_key = "55a44a5925ca4c5da9b47ab603ec1071";
