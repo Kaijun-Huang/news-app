@@ -1,3 +1,5 @@
+![project screenshot](src/assets/projectScreenshot.png)
+
 ### Description
 
 This project is a news website designed to offer users real-time access to the latest news. The platform also provides localized news based on the user's current city. Additionally, users have the capability to browse news articles by category, as well as perform customized searches using keywords.
