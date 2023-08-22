@@ -21,7 +21,7 @@ export const RightPanel = ({ className, pageSize }) => {
         page.current
       );
       setCity(cityName);
-      setLocalNews(allNewsData);
+      if (allNewsData) setLocalNews(allNewsData);
     };
     fetchData();
   }, [pageSize]);
@@ -39,16 +39,20 @@ export const RightPanel = ({ className, pageSize }) => {
   return (
     <div className={`${style.rightPanel} ${className}`}>
       <p className={`${style.title}`}>{city + " - "}地方新聞</p>
-      <div
-        className={style.cardsContainer}
-        onScroll={(e) => {
-          if (isBottom(e)) handleScroll();
-        }}
-      >
-        {localNews.map((news, i) => (
-          <RightNewsCard key={i} data={news} />
-        ))}
-      </div>
+      {localNews.length > 0 ? (
+        <div
+          className={style.cardsContainer}
+          onScroll={(e) => {
+            if (isBottom(e)) handleScroll();
+          }}
+        >
+          {localNews.map((news, i) => (
+            <RightNewsCard key={i} data={news} />
+          ))}
+        </div>
+      ) : (
+        "新聞資料系統維修中, 請稍後再試"
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import style from "./LeftPanel.module.scss";
 import { LeftNewsCard } from "./NewsCard";
 import { useEffect, useRef, useState } from "react";
-import { getEverything, getTopHeadlines, getTopHeadlines1 } from "api/getNews";
+import { getEverything, getTopHeadlines, testApi } from "api/getNews";
 import { useFilter } from "context/filterContext";
 import { isBottom } from "components/virtualScroll";
 import { throttle } from "components/throttle";
@@ -24,10 +24,8 @@ export const LeftPanel = ({ pageSize }) => {
           pageSize,
           page.current
         );
-        console.log(
-          await getTopHeadlines1(country, category, pageSize, page.current)
-        );
-        setAllNews(headlinesData);
+        console.log(await testApi());
+        if (headlinesData) setAllNews(headlinesData);
       } else {
         const allNewsData = await getEverything(
           language,
@@ -35,7 +33,7 @@ export const LeftPanel = ({ pageSize }) => {
           pageSize,
           page.current
         );
-        setAllNews(allNewsData);
+        if (allNewsData) setAllNews(allNewsData);
       }
     };
     fetchData();
@@ -64,17 +62,21 @@ export const LeftPanel = ({ pageSize }) => {
           <WeatherInfo />
           <p className={style.title}>焦點新聞</p>
         </div>
-        <div
-          className={style.cardsContainer}
-          onScroll={(e) => {
-            if (isBottom(e)) handleScroll();
-          }}
-        >
-          {allNews.map((news, i) => (
-            <LeftNewsCard key={i} data={news} />
-          ))}
-          {isEnd ? <div>以上就是全部內容</div> : ""}
-        </div>
+        {allNews.length > 0 ? (
+          <div
+            className={style.cardsContainer}
+            onScroll={(e) => {
+              if (isBottom(e)) handleScroll();
+            }}
+          >
+            {allNews.map((news, i) => (
+              <LeftNewsCard key={i} data={news} />
+            ))}
+            {isEnd ? <div>以上就是全部內容</div> : ""}
+          </div>
+        ) : (
+          "新聞資料系統維修中, 請稍後再試"
+        )}
       </div>
     </>
   );
