@@ -1,6 +1,4 @@
 import axios from "axios";
-const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
-const api_key = process.env.REACT_APP_NewsAPI_API_Key_3;
 //Gnews
 
 // export const getTopHeadlines1 = async (country, category, pageSize, page) => {

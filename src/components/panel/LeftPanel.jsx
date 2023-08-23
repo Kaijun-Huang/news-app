@@ -1,7 +1,7 @@
 import style from "./LeftPanel.module.scss";
 import { LeftNewsCard } from "./NewsCard";
 import { useEffect, useRef, useState } from "react";
-import { getEverything, getTopHeadlines, testApi } from "api/getNews";
+import { getEverything, getTopHeadlines } from "api/getNews";
 import { useFilter } from "context/filterContext";
 import { isBottom } from "components/virtualScroll";
 import { throttle } from "components/throttle";
