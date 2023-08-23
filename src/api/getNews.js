@@ -1,12 +1,7 @@
 import axios from "axios";
-// const cors = "https://proxy.cors.sh/";
 const newsApiBaseUrl = "https://newsapi.org/v2/";
 // const gnewsApiBaseUrl = "https://gnews.io/api/v4/";
-// const api_key = "55a44a5925ca4c5da9b47ab603ec1071";
-// const api_key = "1cae91a01378408481142597556d7ccd";
-const news_api_key = "fe235f8dd24e4f668633aca2af28cc32";
-// const gnews_api_key = "3b569fd472cb562865863424b5cd86cf";
-
+const news_api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
 //Gnews
 
 // export const getTopHeadlines1 = async (country, category, pageSize, page) => {

@@ -8,7 +8,6 @@ import { throttle } from "components/throttle";
 import { WeatherInfo } from "./WeatherInfo";
 // import { getUserLocation } from "api/geoLocation";
 // import { getWeatherData } from "api/weatherapi";
-
 export const LeftPanel = ({ pageSize }) => {
   const [allNews, setAllNews] = useState([]);
   // const [weatherData, setWeatherData] = useState({});
