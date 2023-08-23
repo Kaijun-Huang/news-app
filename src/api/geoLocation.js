@@ -1,6 +1,8 @@
 import axios from "axios";
+// const geoCodeBaseURL = "https://maps.googleapis.com/maps/api/geocode/json";
+const geoCodeBaseURL = process.env.REACT_APP_GeoCodeBaseURL;
+
 const API_KEY = process.env.REACT_APP_GeoLoaction_API_Key;
-const geoCodeBaseURL = "https://maps.googleapis.com/maps/api/geocode/json";
 
 export const getUserLocation = () => {
   return new Promise((resolve, reject) => {

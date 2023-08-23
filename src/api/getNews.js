@@ -1,7 +1,6 @@
 import axios from "axios";
-const newsApiBaseUrl = "https://newsapi.org/v2/";
-// const gnewsApiBaseUrl = "https://gnews.io/api/v4/";
-const news_api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
+const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
+const api_key = process.env.REACT_APP_NewsAPI_API_Key_3;
 //Gnews
 
 // export const getTopHeadlines1 = async (country, category, pageSize, page) => {
@@ -47,16 +46,17 @@ const news_api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
 
 export const getTopHeadlines = async (country, category, pageSize, page) => {
   try {
-    const { data } = await axios.get(`${newsApiBaseUrl}top-headlines`, {
+    // const { data } = await axios.get(`${baseUrl}top-headlines`, {
+    const { data } = await axios.get("/api/top-headlines", {
       params: {
         country,
         category,
         pageSize,
         page,
       },
-      headers: {
-        Authorization: "Bearer " + news_api_key,
-      },
+      // headers: {
+      //   Authorization: "Bearer " + api_key,
+      // },
     });
     return data.articles;
   } catch (error) {
@@ -67,18 +67,18 @@ export const getTopHeadlines = async (country, category, pageSize, page) => {
 
 export const getEverything = async (language, query, pageSize, page) => {
   try {
-    const { data } = await axios.get(`${newsApiBaseUrl}everything`, {
+    const { data } = await axios.get("/api/everything", {
       params: {
-        q: "'" + query + "'",
+        q: query,
         language,
         pageSize,
         page: page,
         sortBy: "publishedAt",
         searchIn: "title,description",
       },
-      headers: {
-        Authorization: "Bearer " + news_api_key,
-      },
+      // headers: {
+      //   Authorization: "Bearer " + api_key,
+      // },
     });
     return data.articles;
   } catch (error) {

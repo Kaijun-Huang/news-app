@@ -1,6 +1,7 @@
 import axios from "axios";
-const openWeatherBaseUrl = "https://api.openweathermap.org/data/3.0/onecall";
+const openWeatherBaseUrl = process.env.REACT_APP_OpenWeatherBaseUrl;
 const api_key = process.env.REACT_APP_OpenWeather_API_Key;
+
 export const getWeatherData = async (lat, lon) => {
   try {
     const { data } = await axios.get(openWeatherBaseUrl, {
