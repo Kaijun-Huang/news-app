@@ -1,8 +1,11 @@
 import axios from "axios";
 // import "dotenv/config";
 // require("dotenv").config();
-const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
-const api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
+// const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
+const baseUrl = "https://newsapi.org/v2/";
+const api_key = "fe235f8dd24e4f668633aca2af28cc32";
+
+// const api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
 export const getTopHeadlines = async (country, category, pageSize, page) => {
   try {
     const { data } = await axios.get(`${baseUrl}top-headlines`, {
@@ -52,7 +55,7 @@ export const testApi = async () => {
     "https://bing-news-search1.p.rapidapi.com/news?mkt=zh-TW",
     {
       headers: {
-        "X-RapidAPI-Key": process.env.REACT_APP_BingNews_Api_Key,
+        "X-RapidAPI-Key": "b5ebc42dbemsh6bcc6f82a52d0a8p13b936jsn0284fa664f7b",
         "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
       },
     }
