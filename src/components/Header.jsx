@@ -34,19 +34,18 @@ export const Header = () => {
           const country = e.target.value;
           const language = countryLanguageConverter(e.target.value);
           setCountry(country);
-          setLanguage(language);
+          // setLanguage(language);
         }}
       >
-        <option value="de">Germany</option>
-        <option value="us">United States</option>
-        <option value="es">Spain</option>
-        <option value="fr">France</option>
-        <option value="it">Italy</option>
-        <option value="nl">Netherland</option>
-        <option value="no">Norway</option>
-        <option value="pt">Portugal</option>
-        <option value="ru">Russia</option>
-        <option value="tw">台灣</option>
+        <option value="de-DE">Germany</option>
+        <option value="es-US">United States</option>
+        <option value="es-ES">Spain</option>
+        <option value="fr-BE">France</option>
+        <option value="it-IT">Italy</option>
+        <option value="nl-NL">Netherland</option>
+        <option value="ja-JP">Japan</option>
+        <option value="ru-RU">Russia</option>
+        <option value="zh-TW">台灣</option>
       </select>
     );
   };

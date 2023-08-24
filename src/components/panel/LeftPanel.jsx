@@ -1,7 +1,12 @@
 import style from "./LeftPanel.module.scss";
 import { LeftNewsCard } from "./NewsCard";
 import { useEffect, useRef, useState } from "react";
-import { getEverything, getTopHeadlines, testApi } from "api/getNews";
+import {
+  getBingNewsByCategory,
+  getEverything,
+  getTopHeadlines,
+  testApi,
+} from "api/getNews";
 import { useFilter } from "context/filterContext";
 import { isBottom } from "components/virtualScroll";
 import { throttle } from "components/throttle";
@@ -18,22 +23,29 @@ export const LeftPanel = ({ pageSize }) => {
     const fetchData = async () => {
       if (query.length === 0) {
         //news api
-        const headlinesData = await getTopHeadlines(
-          country,
+        // const headlinesData = await getTopHeadlines(
+        //   country,
+        //   category,
+        //   pageSize,
+        //   page.current
+        // );
+
+        const headlinesData = await getBingNewsByCategory(
           category,
+          country,
           pageSize,
           page.current
         );
-        console.log(await testApi());
+
         if (headlinesData) setAllNews(headlinesData);
       } else {
-        const allNewsData = await getEverything(
-          language,
-          query,
-          pageSize,
-          page.current
-        );
-        if (allNewsData) setAllNews(allNewsData);
+        // const allNewsData = await getEverything(
+        //   language,
+        //   query,
+        //   pageSize,
+        //   page.current
+        // );
+        // if (allNewsData) setAllNews(allNewsData);
       }
     };
     fetchData();
@@ -69,7 +81,7 @@ export const LeftPanel = ({ pageSize }) => {
               if (isBottom(e)) handleScroll();
             }}
           >
-            {allNews.map((news, i) => (
+            {allNews?.map((news, i) => (
               <LeftNewsCard key={i} data={news} />
             ))}
             {isEnd ? <div>以上就是全部內容</div> : ""}

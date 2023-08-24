@@ -2,14 +2,14 @@ import { timeAgo } from "components/timeCacul";
 import style from "./NewsCard.module.scss";
 
 export const LeftNewsCard = ({ data }) => {
-  const time = timeAgo(data.publishedAt);
+  const time = timeAgo(data.datePublished);
   return (
     <a href={data.url}>
       <div className={`${style.leftNewsCard}`}>
-        {data.urlToImage !== null ? (
+        {data.image?.thumbnail.contentUrl !== null ? (
           <img
             className={style.urlToImage}
-            src={data.urlToImage}
+            src={data.image?.thumbnail.contentUrl}
             alt="urlToImage"
           />
         ) : (
@@ -17,13 +17,13 @@ export const LeftNewsCard = ({ data }) => {
         )}
         <div className={style.titleAuthorAndDate}>
           <p className={style.title}>
-            {data.title.length > 60
-              ? data.title.slice(0, 60).concat("...")
-              : data.title}
+            {data.name.length > 60
+              ? data.name.slice(0, 60).concat("...")
+              : data.name}
           </p>
           <div className={style.authorAndDate}>
             <span>{time}</span>
-            {data.author ? <span>from: {data.author}</span> : ""}
+            {data.provider ? <span>from: {data.provider[0].name}</span> : ""}
           </div>
         </div>
         {/* <p className={style.description}>{data.description}</p> */}

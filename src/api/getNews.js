@@ -60,20 +60,31 @@ export const testApi = async () => {
   return data.value;
 };
 
-// export const getBingNewsByCategory = async () => {
-//   try {
-//     const { data } = await axios.get(`${baseUrl}everything`, {
-//       // const { data } = await axios.get("/api/everything", {
-//       params: {
-//         category
-//       },
-//       headers: {
-//         Authorization: "Bearer " + api_key,
-//       },
-//     });
-//     return data.articles;
-//   } catch (error) {
-//     console.error(error);
-//     return false;
-//   }
-// };
+export const getBingNewsByCategory = async (
+  category,
+  country,
+  pageSize,
+  page
+) => {
+  try {
+    const { data } = await axios.get(
+      `https://bing-news-search1.p.rapidapi.com/news`,
+      {
+        params: {
+          category,
+          mkt: country,
+          count: pageSize,
+          offset: page,
+        },
+        headers: {
+          "X-RapidAPI-Key": process.env.REACT_APP_BingNews_Api_Key,
+          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+        },
+      }
+    );
+    return data.value;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};

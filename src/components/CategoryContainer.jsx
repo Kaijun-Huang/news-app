@@ -4,7 +4,7 @@ import styles from "./CategoryContainer.module.scss";
 export const CategoryContainer = ({ className }) => {
   return (
     <div className={`${styles.container} ${className}`}>
-      <CategoryBtn categoryLabel="General" categoryName="首頁" />
+      <CategoryBtn categoryLabel="" categoryName="首頁" />
       <CategoryBtn categoryLabel="Business" categoryName="商業" />
       <CategoryBtn categoryLabel="Entertainment" categoryName="娛樂" />
       <CategoryBtn categoryLabel="Health" categoryName="健康" />
