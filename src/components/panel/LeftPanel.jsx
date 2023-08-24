@@ -1,7 +1,7 @@
 import style from "./LeftPanel.module.scss";
 import { LeftNewsCard } from "./NewsCard";
 import { useEffect, useRef, useState } from "react";
-import { getEverything, getTopHeadlines } from "api/getNews";
+import { getEverything, getTopHeadlines, testApi } from "api/getNews";
 import { useFilter } from "context/filterContext";
 import { isBottom } from "components/virtualScroll";
 import { throttle } from "components/throttle";
@@ -15,7 +15,7 @@ export const LeftPanel = ({ pageSize }) => {
   const [isEnd, setIsEnd] = useState(false);
   const { category, country, query, language } = useFilter();
   useEffect(() => {
-    console.log(process.env.REACT_APP_GeoCodeBaseURL);
+    console.log(process.env.REACT_APP_NewsApiBaseUrl);
     const fetchData = async () => {
       if (query.length === 0) {
         const headlinesData = await getTopHeadlines(
@@ -24,7 +24,7 @@ export const LeftPanel = ({ pageSize }) => {
           pageSize,
           page.current
         );
-        // console.log(await testApi());
+        console.log(await testApi());
         if (headlinesData) setAllNews(headlinesData);
       } else {
         const allNewsData = await getEverything(
