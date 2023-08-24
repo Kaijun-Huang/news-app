@@ -1,7 +1,8 @@
 import axios from "axios";
+// import "dotenv/config";
+// require("dotenv").config();
 const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
 const api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
-
 export const getTopHeadlines = async (country, category, pageSize, page) => {
   try {
     const { data } = await axios.get(`${baseUrl}top-headlines`, {
