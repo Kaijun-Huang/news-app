@@ -57,5 +57,23 @@ export const testApi = async () => {
       },
     }
   );
-  return data;
+  return data.value;
 };
+
+// export const getBingNewsByCategory = async () => {
+//   try {
+//     const { data } = await axios.get(`${baseUrl}everything`, {
+//       // const { data } = await axios.get("/api/everything", {
+//       params: {
+//         category
+//       },
+//       headers: {
+//         Authorization: "Bearer " + api_key,
+//       },
+//     });
+//     return data.articles;
+//   } catch (error) {
+//     console.error(error);
+//     return false;
+//   }
+// };

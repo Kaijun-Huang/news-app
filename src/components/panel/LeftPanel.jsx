@@ -15,9 +15,9 @@ export const LeftPanel = ({ pageSize }) => {
   const [isEnd, setIsEnd] = useState(false);
   const { category, country, query, language } = useFilter();
   useEffect(() => {
-    console.log(process.env.REACT_APP_NewsApiBaseUrl);
     const fetchData = async () => {
       if (query.length === 0) {
+        //news api
         const headlinesData = await getTopHeadlines(
           country,
           category,
