@@ -10,7 +10,6 @@ import { getCityName, getUserLocation } from "api/geoLocation";
 export const LeftPanel = ({ pageSize }) => {
   const [city, setCity] = useState("");
   const [allNews, setAllNews] = useState([]);
-  // const [weatherData, setWeatherData] = useState({});
   const page = useRef(0);
   const [isEnd, setIsEnd] = useState(false);
   const { category, country, query, language } = useFilter();

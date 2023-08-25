@@ -1,9 +1,9 @@
 import axios from "axios";
-const openWeatherBaseUrl = "https://api.openweathermap.org/data/3.0/onecall";
-// const openWeatherBaseUrl = process.env.REACT_APP_OpenWeatherBaseUrl;
-const api_key = "93bc29abfa33b0b5b243f62874ec9f56";
+// const openWeatherBaseUrl = "https://api.openweathermap.org/data/3.0/onecall";
+const openWeatherBaseUrl = process.env.REACT_APP_OpenWeatherBaseUrl;
+// const api_key = "93bc29abfa33b0b5b243f62874ec9f56";
 
-// const api_key = process.env.REACT_APP_OpenWeather_API_Key;
+const api_key = process.env.REACT_APP_OpenWeather_API_Key;
 
 export const getWeatherData = async (lat, lon) => {
   try {

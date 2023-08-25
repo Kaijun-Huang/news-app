@@ -29,11 +29,7 @@ export const Header = () => {
         className={className}
         name="country"
         id="country"
-        onChange={(e) => {
-          setCountry(e.target.value);
-          // const language = countryLanguageConverter(e.target.value);
-          // setLanguage(language);
-        }}
+        onChange={(e) => setCountry(e.target.value)}
       >
         <option value="en-GB">United Kingdom</option>
         <option value="es-US">United States</option>
