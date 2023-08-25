@@ -10,12 +10,13 @@
   .imgAndCity {
     display: flex;
     flex-direction: column;
+    font-size: 12px;
     img {
       background-color: white;
       border-radius: 10px;
       margin-right: 5px;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
     }
   }
   .weatherInfo {

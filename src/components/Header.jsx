@@ -7,7 +7,6 @@ import { ReactComponent as Search } from "assets/search.svg";
 import { useFilter } from "context/filterContext";
 import style from "./Header.module.scss";
 import { useEffect, useState } from "react";
-import { countryLanguageConverter } from "./countrylang";
 import { CategoryContainer } from "./CategoryContainer";
 import { SearchBarContainer } from "./SearchBar";
 
@@ -15,7 +14,7 @@ export const Header = () => {
   const initialMode = JSON.parse(localStorage.getItem("lightMode"));
   const localLightMode = initialMode === null ? true : initialMode;
   const [lightMode, setLightMode] = useState(localLightMode);
-  const { country, setCountry, setLanguage } = useFilter();
+  const { country, setCountry } = useFilter();
   useEffect(() => {
     const root = document.getElementById("root");
     lightMode
@@ -31,21 +30,17 @@ export const Header = () => {
         name="country"
         id="country"
         onChange={(e) => {
-          const country = e.target.value;
-          const language = countryLanguageConverter(e.target.value);
-          setCountry(country);
+          setCountry(e.target.value);
+          // const language = countryLanguageConverter(e.target.value);
           // setLanguage(language);
         }}
       >
-        <option value="de-DE">Germany</option>
+        <option value="en-GB">United Kingdom</option>
         <option value="es-US">United States</option>
-        <option value="es-ES">Spain</option>
-        <option value="fr-BE">France</option>
-        <option value="it-IT">Italy</option>
-        <option value="nl-NL">Netherland</option>
+        <option value="en-CA">Canada </option>
+        <option value="en-IN">India </option>
         <option value="ja-JP">Japan</option>
-        <option value="ru-RU">Russia</option>
-        <option value="zh-TW">台灣</option>
+        <option value="zh-CN">台灣</option>
       </select>
     );
   };

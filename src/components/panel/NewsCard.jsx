@@ -6,11 +6,11 @@ export const LeftNewsCard = ({ data }) => {
   return (
     <a href={data.url}>
       <div className={`${style.leftNewsCard}`}>
-        {data.image?.thumbnail.contentUrl !== null ? (
+        {data.image?.thumbnail.contentUrl !== undefined ? (
           <img
             className={style.urlToImage}
             src={data.image?.thumbnail.contentUrl}
-            alt="urlToImage"
+            alt="img"
           />
         ) : (
           ""
@@ -26,7 +26,6 @@ export const LeftNewsCard = ({ data }) => {
             {data.provider ? <span>from: {data.provider[0].name}</span> : ""}
           </div>
         </div>
-        {/* <p className={style.description}>{data.description}</p> */}
       </div>
     </a>
   );
@@ -37,16 +36,20 @@ export const RightNewsCard = ({ data }) => {
     <a href={data.url}>
       <div className={style.rightNewsCard}>
         <div className={style.imgAndTitle}>
-          {data.urlToImage !== null ? (
+          {data.image?.thumbnail.contentUrl !== undefined ? (
             <img
               className={style.urlToImage}
-              src={data.urlToImage}
-              alt="urlToImage"
+              src={data.image?.thumbnail.contentUrl}
+              alt="img"
             />
           ) : (
             ""
           )}
-          <p className={style.title}>{data.title}</p>
+          <p className={style.title}>
+            {data.name.length > 60
+              ? data.name.slice(0, 60).concat("...")
+              : data.name}
+          </p>
         </div>
       </div>
     </a>

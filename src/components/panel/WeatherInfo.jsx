@@ -3,7 +3,7 @@ import style from "./WeatherInfo.module.scss";
 import { getUserLocation } from "api/geoLocation";
 import { getWeatherData } from "api/weatherapi";
 
-export const WeatherInfo = () => {
+export const WeatherInfo = ({ city }) => {
   const [weatherData, setWeatherData] = useState({});
 
   useEffect(() => {
@@ -22,6 +22,7 @@ export const WeatherInfo = () => {
     <div className={style.weatherInfoContainer}>
       <div className={style.imgAndCity}>
         <img src={iconUrl} alt="weatherIcon"></img>
+        <span className={style.cityName}>{city}</span>
       </div>
       <div className={style.weatherInfo}>
         <span>氣溫: {roundUp(weatherData?.temp)}度</span>

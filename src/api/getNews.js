@@ -1,7 +1,9 @@
 import axios from "axios";
 // import "dotenv/config";
 // require("dotenv").config();
-const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
+// const baseUrl = process.env.REACT_APP_BingNews_Api_Key;
+const baseUrl = "https://bing-news-search1.p.rapidapi.com/news";
+
 const api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
 export const getTopHeadlines = async (country, category, pageSize, page) => {
   try {
@@ -60,6 +62,32 @@ export const testApi = async () => {
   return data.value;
 };
 
+export const getBingNewsBySearching = async (
+  query,
+  country,
+  pageSize,
+  page
+) => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/search`, {
+      params: {
+        q: query,
+        mkt: country,
+        count: pageSize,
+        offset: page,
+      },
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_BingNews_Api_Key,
+        "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+      },
+    });
+    return data.value;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
 export const getBingNewsByCategory = async (
   category,
   country,
@@ -67,21 +95,18 @@ export const getBingNewsByCategory = async (
   page
 ) => {
   try {
-    const { data } = await axios.get(
-      `https://bing-news-search1.p.rapidapi.com/news`,
-      {
-        params: {
-          category,
-          mkt: country,
-          count: pageSize,
-          offset: page,
-        },
-        headers: {
-          "X-RapidAPI-Key": process.env.REACT_APP_BingNews_Api_Key,
-          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-        },
-      }
-    );
+    const { data } = await axios.get(baseUrl, {
+      params: {
+        category,
+        mkt: country,
+        count: pageSize,
+        offset: page,
+      },
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_BingNews_Api_Key,
+        "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+      },
+    });
     return data.value;
   } catch (error) {
     console.error(error);
