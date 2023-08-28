@@ -4,16 +4,16 @@ const cors = require("cors");
 const axios = require("axios");
 require("dotenv").config();
 
-// const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
-const baseUrl = "https://newsapi.org/v2/";
-// const api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
-const api_key = "fe235f8dd24e4f668633aca2af28cc32";
+const baseUrl = process.env.REACT_APP_NewsApiBaseUrl;
+// const baseUrl = "https://newsapi.org/v2/";
+const api_key = process.env.REACT_APP_NewsAPI_API_Key_1;
+// const api_key = "fe235f8dd24e4f668633aca2af28cc32";
 
 const app = express();
 app.use(cors());
 
 app.use(express.static("build"));
-app.get("/api/top-headlines", (req, res) => {
+app.get("/api/search", (req, res) => {
   console.log(baseUrl);
   const option = {
     method: "get",
@@ -36,18 +36,19 @@ app.get("/api/top-headlines", (req, res) => {
     });
 });
 
-app.get("/api/everything", (req, res) => {
+app.get("/api/category", (req, res) => {
   const option = {
     method: "get",
-    url: `${baseUrl}everything`,
+    url: `${baseUrl}/search`,
     params: {
-      q: req.query.q,
-      language: req.query.language,
-      pageSize: req.query.pageSize,
-      page: req.query.page,
+      category: req.query.category,
+      mkt: req.query.country,
+      count: req.query.pageSize,
+      offset: req.query.page,
     },
     headers: {
-      Authorization: "Bearer " + api_key,
+      "X-RapidAPI-Key": api_key,
+      "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
     },
   };
   axios

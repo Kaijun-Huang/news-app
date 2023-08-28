@@ -13,6 +13,7 @@ export const LeftPanel = ({ pageSize }) => {
   const page = useRef(0);
   const [isEnd, setIsEnd] = useState(false);
   const { category, country, query, language } = useFilter();
+
   useEffect(() => {
     const fetchData = async () => {
       const { latitude, longitude } = await getUserLocation();
@@ -25,7 +26,6 @@ export const LeftPanel = ({ pageSize }) => {
           pageSize,
           page.current
         );
-
         if (headlinesData) setAllNews(headlinesData);
       } else {
         const searchResult = await getBingNewsBySearching(
