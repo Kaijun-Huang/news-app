@@ -1,9 +1,9 @@
 import axios from "axios";
-// const api_key = process.env.REACT_APP_BingNews_Api_Key;
-// const baseUrl = process.env.REACT_APP_BingNewsApiBaseUrl;
+const api_key = process.env.REACT_APP_BingNews_Api_Key;
+const baseUrl = process.env.REACT_APP_BingNewsApiBaseUrl;
 
-const api_key = "b5ebc42dbemsh6bcc6f82a52d0a8p13b936jsn0284fa664f7b";
-const baseUrl = "https://bing-news-search1.p.rapidapi.com/news";
+// const api_key = "b5ebc42dbemsh6bcc6f82a52d0a8p13b936jsn0284fa664f7b";
+// const baseUrl = "https://bing-news-search1.p.rapidapi.com/news";
 
 // export const getTopHeadlines = async (country, category, pageSize, page) => {
 //   try {
@@ -94,6 +94,8 @@ export const getBingNewsByCategory = async (
         "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
       },
     });
+    console.log(process.env.REACT_APP_BingNewsApiBaseUrl);
+
     return data.value;
   } catch (error) {
     console.error(error);
