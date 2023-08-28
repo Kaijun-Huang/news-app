@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
-      - run: echo "This is the api key variable ${{secrets.REACT_APP_BingNews_Api_Key}}"
+      - run: echo "This is the api key variable ${{secrets.REACT_APP_BingNews_Api_Key}}""
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
