@@ -33,7 +33,7 @@ export const getCityName = async (lat, lng) => {
         result_type: "administrative_area_level_1",
       },
     });
-    const city = data.results[0].address_components[0].long_name;
+    const city = data?.results[0].address_components[0].long_name;
     return city;
   } catch (error) {
     console.error(error);
