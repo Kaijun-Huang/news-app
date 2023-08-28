@@ -9,13 +9,9 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_BingNews_Api_Key: ${{secrets.REACT_APP_BingNews_Api_Key}}
-      REACT_APP_BINGNEWSAPIBASEURL: ${{secrets.REACT_APP_BINGNEWSAPIBASEURL}}
     steps:
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
-      - run: echo "This is the api key variable ${{secrets.REACT_APP_BingNews_Api_Key}}""
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
