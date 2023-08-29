@@ -1,5 +1,7 @@
 ![project screenshot](src/assets/projectScreenshot.png)
 
+因臨時更換新聞資料來源, 焦點新聞內容為簡體新聞, 請見諒
+
 ### Description
 
 This project is a news website designed to offer users real-time access to the latest news. Users have the capability to browse news articles by category, as well as perform customized searches using keywords.
