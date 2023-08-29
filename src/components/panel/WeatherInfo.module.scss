@@ -1,9 +1,11 @@
+@import "App";
+
 .weatherInfoContainer {
   position: absolute;
   padding: 5px;
   border-radius: 10px;
   background-color: var(--lightMain);
-  width: 180px;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -20,10 +22,20 @@
     }
   }
   .weatherInfo {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
+    display: none;
+  }
+}
+
+@media screen and (min-width: $screen_breakpoint) {
+  .weatherInfoContainer {
+    width: 180px;
+
+    .weatherInfo {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+    }
   }
 }
